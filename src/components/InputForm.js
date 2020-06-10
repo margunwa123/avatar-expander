@@ -12,23 +12,25 @@ const styles = makeStyles((theme) => ({
 }));
 
 class InputForm extends React.Component {
-    render() {
-        const { classes } = this.props;
-        return (
-            <form className={classes.root} noValidate autoComplete="off">
-                <TextField
-                    id="filled-number"
-                    label="Number"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    variant="filled"
-                    onChange={ this.props.onChange }
-                />
-            </form>
-        );
-    }
+  render() {
+      const { classes } = this.props;
+      return (
+          <form className={classes.root} noValidate autoComplete="off">
+              <TextField
+                  error={ this.props.error }
+                  id="filled-number"
+                  label="Enter id to search"
+                  type="number"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  variant="filled"
+                  onChange={ this.props.onChange }
+                  helperText={ this.props.errorMessage }
+              />
+          </form>
+      );
+  }
 }
 
 export default withStyles(styles)(InputForm);

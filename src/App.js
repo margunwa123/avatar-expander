@@ -3,16 +3,30 @@ import './App.css';
 import NavBar from './components/NavBar';
 import InputForm from './components/InputForm';
 import GraphImage from './components/GraphImage';
+import FriendsTable from './components/FriendsTable';
+import TargetDataCard from './components/TargetDataCard';
 
 class App extends Component {
 	constructor(props) {
         super(props);
-        this.state = { target: '', json: null, graphData: { nodes: [], links: [] }, startEmpty: false };
+        this.state = { target: '', json: null, targetData: null, friendsList: [], graphData: { nodes: [], links: [] }, startEmpty: false, error: false, errorMessage: '' };
 	}
 	
     handleOnChange = event => {
 		this.setState({ target: event.target.value, startEmpty: true }, this.fetchTarget);
 	};
+
+	updateFriendsList = () => {
+		var newTargetData;
+		newTargetData = { id: this.state.json.id, name: this.state.json.name, element: this.state.json.element };
+		this.setState({ targetData: newTargetData });
+
+		var newFriendsList = [];
+		this.state.json.friends.forEach(friend => {
+			newFriendsList.push({ id: friend.id, name: friend.name, element: friend.element });
+		});
+		this.setState({ friendsList: newFriendsList });
+	}
 
 	updateGraphData = () => {
 		var newGraphData;
@@ -85,9 +99,10 @@ class App extends Component {
             if (response.status === 200) return response.json();
             throw new Error(response.statusText);
         })
-		.then(json => this.setState({ json: json.payload }))
+		.then(json => this.setState({ error: false, errorMessage: '', json: json.payload }))
+		.then(this.updateFriendsList)
 		.then(this.updateGraphData)
-        .catch(error => console.log(error));
+        .catch(_error => this.setState({error: true, errorMessage: _error.message}));
 	}
 	
 	handleOnNodeClick = nodeId => {
@@ -98,8 +113,10 @@ class App extends Component {
 		return (
 			<div>
 				<NavBar />
-				<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } />
+				<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
                 <GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnNodeClick } />
+				<TargetDataCard targetData={ this.state.targetData } />
+				<FriendsTable friendsList={ this.state.friendsList } />
 			</div>
 		)
 	}
