@@ -21,10 +21,43 @@ class App extends Component {
 		} else {
 			newGraphData = this.state.graphData;
 		}
+		var nodeColor;
+		switch (this.state.json.element) {
+			case 'fire':
+				nodeColor = 'red';
+				break;
+			case 'water':
+				nodeColor = 'blue';
+				break;
+			case 'air':
+				nodeColor = 'green';
+				break;
+			case 'earth':
+				nodeColor = 'yellow';
+				break;
+			default:
+				nodeColor = 'black';
+		}
 		const sourceId = this.state.json.id;
-		newGraphData.nodes.push({ id: this.state.json.id, name: this.state.json.name });
+		newGraphData.nodes.push({ id: this.state.json.id, name: this.state.json.name, color: nodeColor });
 		this.state.json.friends.forEach(friend => {
-			newGraphData.nodes.push({ id: friend.id, name: friend.name });
+			switch (friend.element) {
+				case 'fire':
+					nodeColor = 'red';
+					break;
+				case 'water':
+					nodeColor = 'blue';
+					break;
+				case 'air':
+					nodeColor = 'green';
+					break;
+				case 'earth':
+					nodeColor = 'yellow';
+					break;
+				default:
+					nodeColor = 'black';
+			}
+			newGraphData.nodes.push({ id: friend.id, name: friend.name, color: nodeColor });
 		});
 		newGraphData.nodes = newGraphData.nodes.filter((nodes, index, self) =>
 			index === self.findIndex((t) => (

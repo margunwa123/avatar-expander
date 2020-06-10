@@ -10,7 +10,6 @@ class GraphImage extends React.Component {
         console.log("graph rendered");
 
         const myConfig = {
-            nodeHighlightBehavior: true,
             node: {
                 color: "lightgreen",
                 size: 120,
@@ -21,6 +20,8 @@ class GraphImage extends React.Component {
                 highlightColor: "lightblue",
             },
             directed: true,
+            height: 800,
+            width: 1600,
         };
 
         console.log(this.props.graphData);
