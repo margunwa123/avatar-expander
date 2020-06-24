@@ -5,6 +5,7 @@ import InputForm from './components/InputForm';
 import GraphImage from './components/GraphImage';
 import FriendsTable from './components/FriendsTable';
 import TargetDataCard from './components/TargetDataCard';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
 	constructor(props) {
@@ -38,7 +39,7 @@ class App extends Component {
 		var nodeColor;
 		switch (this.state.json.element) {
 			case 'fire':
-				nodeColor = 'red';
+				nodeColor = '#973210';
 				break;
 			case 'water':
 				nodeColor = 'blue';
@@ -113,10 +114,18 @@ class App extends Component {
 		return (
 			<div>
 				<NavBar />
-				<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
-                <GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnNodeClick } />
-				<TargetDataCard targetData={ this.state.targetData } />
-				<FriendsTable friendsList={ this.state.friendsList } />
+				<Grid container spacing={2}>
+					<Grid item xs={12}>
+						<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
+					</Grid>
+					<Grid item md={6}>
+						<GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnNodeClick } />
+					</Grid>
+					<Grid item md={6}>
+						<TargetDataCard targetData={ this.state.targetData } />
+						<FriendsTable friendsList={ this.state.friendsList } />
+					</Grid>
+				</Grid>
 			</div>
 		)
 	}

@@ -16,8 +16,8 @@ class GraphImage extends React.Component {
                 highlightColor: "lightblue",
             },
             directed: true,
-            // height: 800,
-            // width: 1600,
+            height: 800,
+            width: 900,
         };
 
         console.log(this.props.graphData);
