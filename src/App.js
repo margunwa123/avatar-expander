@@ -39,7 +39,7 @@ class App extends Component {
 		var nodeColor;
 		switch (this.state.json.element) {
 			case 'fire':
-				nodeColor = '#973210';
+				nodeColor = 'red';
 				break;
 			case 'water':
 				nodeColor = 'blue';
@@ -76,7 +76,7 @@ class App extends Component {
 		});
 		newGraphData.nodes = newGraphData.nodes.filter((nodes, index, self) =>
 			index === self.findIndex((t) => (
-				t.id === nodes.id
+				t.id === nodes.id	// remove duplicate nodes
 			))
 		);
 		this.state.json.friends.forEach(friend => {
@@ -84,7 +84,8 @@ class App extends Component {
 		});
 		newGraphData.links = newGraphData.links.filter((links, index, self) =>
 			index === self.findIndex((t) => (
-				t.source === links.source && t.target === links.target
+				(t.source === links.source && t.target === links.target)	// remove duplicate edges
+				|| (links.source === links.target)	// remove self loop
 			))
 		);
 		console.log(newGraphData);
@@ -106,8 +107,12 @@ class App extends Component {
         .catch(_error => this.setState({error: true, errorMessage: _error.message}));
 	}
 	
-	handleOnNodeClick = nodeId => {
+	handleOnClickNode = nodeId => {
 		this.setState({ target: nodeId, startEmpty: false }, this.fetchTarget);
+	}
+
+	handleOnDoubleClickNode = nodeId => {
+		this.setState({ target: nodeId, startEmpty: true }, this.fetchTarget);
 	}
 	
 	render() {
@@ -119,7 +124,7 @@ class App extends Component {
 						<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
 					</Grid>
 					<Grid item md={6}>
-						<GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnNodeClick } />
+						<GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnClickNode } onDoubleClickNode={ this.handleOnDoubleClickNode } />
 					</Grid>
 					<Grid item md={6}>
 						<TargetDataCard targetData={ this.state.targetData } />

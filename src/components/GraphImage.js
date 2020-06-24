@@ -6,14 +6,12 @@ class GraphImage extends React.Component {
         console.log("graph rendered");
 
         const myConfig = {
+            highlightDegree: 0,
             node: {
                 color: "lightgreen",
                 size: 120,
                 highlightStrokeColor: "blue",
                 // labelProperty: "name",
-            },
-            link: {
-                highlightColor: "lightblue",
             },
             directed: true,
             height: 800,
@@ -29,6 +27,7 @@ class GraphImage extends React.Component {
                         data={this.props.graphData}
                         config={myConfig}
                         onClickNode={this.props.onClickNode}
+                        onDoubleClickNode={this.props.onDoubleClickNode}
                     />
                 }
             </div>
