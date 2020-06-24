@@ -108,11 +108,11 @@ class App extends Component {
 	}
 	
 	handleOnClickNode = nodeId => {
-		this.setState({ target: nodeId, startEmpty: false }, this.fetchTarget);
+		this.setState({ target: nodeId, startEmpty: true }, this.fetchTarget);
 	}
 
 	handleOnDoubleClickNode = nodeId => {
-		this.setState({ target: nodeId, startEmpty: true }, this.fetchTarget);
+		this.setState({ target: nodeId, startEmpty: false }, this.fetchTarget);
 	}
 	
 	render() {
@@ -128,7 +128,7 @@ class App extends Component {
 					</Grid>
 					<Grid item md={6}>
 						<TargetDataCard targetData={ this.state.targetData } />
-						<FriendsTable friendsList={ this.state.friendsList } />
+						<FriendsTable friendsList={ this.state.friendsList } onClick={ this.handleOnClickNode } />
 					</Grid>
 				</Grid>
 			</div>

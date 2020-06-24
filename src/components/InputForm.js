@@ -15,7 +15,7 @@ class InputForm extends React.Component {
   render() {
       const { classes } = this.props;
       return (
-          <form className={classes.root} noValidate autoComplete="off">
+          <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className={classes.root} noValidate autoComplete="off">
               <TextField
                   error={ this.props.error }
                   id="filled-number"
