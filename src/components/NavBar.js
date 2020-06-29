@@ -7,20 +7,18 @@ import { Grid } from '@material-ui/core';
 
 const NavBar = () => {
     return(
-        <div>
-            <AppBar position="sticky">
-                <Toolbar>
-                    <Grid container alignItems="flex-start" justify="flex-start" direction="row" >
-                        <Typography variant="title" color="inherit">
-                            Avatar Expander
-                        </Typography>
-                    </Grid>
-                    <Grid container alignItems="flex-start" justify="flex-end" direction="row" >
-                        <Guide />
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <AppBar position="sticky">
+            <Toolbar>
+                <Grid container alignItems="flex-start" justify="flex-start" direction="row" >
+                    <Typography variant="title" color="inherit">
+                        Avatar Expander
+                    </Typography>
+                </Grid>
+                <Grid container alignItems="flex-start" justify="flex-end" direction="row" >
+                    <Guide />
+                </Grid>
+            </Toolbar>
+        </AppBar>
     )
 }
 export default NavBar;
