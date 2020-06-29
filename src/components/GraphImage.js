@@ -3,7 +3,7 @@ import { Graph } from "react-d3-graph";
 
 class GraphImage extends React.Component {
     render() {
-        console.log("graph rendered");
+        // console.log("graph rendered");
 
         const myConfig = {
             highlightDegree: 0,
@@ -14,11 +14,11 @@ class GraphImage extends React.Component {
                 // labelProperty: "name",
             },
             directed: true,
-            height: 800,
-            width: 900,
+            height: window.innerHeight,
+            width: window.innerWidth/2,
         };
 
-        console.log(this.props.graphData);
+        // console.log(this.props.graphData);
         return (
             <div>
                 {this.props.graphData.nodes.length > 0 &&

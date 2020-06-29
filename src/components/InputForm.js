@@ -1,21 +1,21 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-const styles = makeStyles((theme) => ({
+const styles = {
   root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+    width: '100%',
+    margin: '1% auto',
+    display: 'flex',
+    justifyContent: 'center',
+  }
+};
 
 class InputForm extends React.Component {
   render() {
       const { classes } = this.props;
       return (
-          <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className={classes.root} noValidate autoComplete="off">
+          <form className={classes.root} noValidate autoComplete="off">
               <TextField
                   error={ this.props.error }
                   id="filled-number"

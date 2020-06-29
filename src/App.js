@@ -24,8 +24,17 @@ class App extends Component {
 
 		var newFriendsList = [];
 		this.state.json.friends.forEach(friend => {
-			newFriendsList.push({ id: friend.id, name: friend.name, element: friend.element });
+			if (friend.id != this.state.json.id) {
+				newFriendsList.push({ id: friend.id, name: friend.name, element: friend.element });
+			}
 		});
+		newFriendsList.sort((a, b) => (a.id - b.id));
+		newFriendsList = newFriendsList.filter((friends, index, self) =>
+			index === self.findIndex((t) => (
+				t.id === friends.id	// remove duplicate friends
+			))
+		);
+		// console.log(newFriendsList);
 		this.setState({ friendsList: newFriendsList });
 	}
 
@@ -45,10 +54,10 @@ class App extends Component {
 				nodeColor = 'blue';
 				break;
 			case 'air':
-				nodeColor = 'green';
+				nodeColor = '#79edfe';
 				break;
 			case 'earth':
-				nodeColor = 'yellow';
+				nodeColor = 'brown';
 				break;
 			default:
 				nodeColor = 'black';
@@ -64,10 +73,10 @@ class App extends Component {
 					nodeColor = 'blue';
 					break;
 				case 'air':
-					nodeColor = 'green';
+					nodeColor = '#79edfe';
 					break;
 				case 'earth':
-					nodeColor = 'yellow';
+					nodeColor = 'brown';
 					break;
 				default:
 					nodeColor = 'black';
@@ -88,12 +97,12 @@ class App extends Component {
 				|| (links.source === links.target)	// remove self loop
 			))
 		);
-		console.log(newGraphData);
+		// console.log(newGraphData);
 		this.setState({ graphData: newGraphData });
 	}
 	
     fetchTarget = () => {
-		console.log(this.state.target);
+		// console.log(this.state.target);
         fetch("https://avatar.labpro.dev/friends/" + this.state.target, {
             method: 'GET'
         })
@@ -119,14 +128,14 @@ class App extends Component {
 		return (
 			<div>
 				<NavBar />
-				<Grid container spacing={2}>
-					<Grid item xs={12}>
+				<Grid container>
+					<Grid xs={12}>
 						<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
 					</Grid>
-					<Grid item md={6}>
+					<Grid md={6}>
 						<GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnClickNode } onDoubleClickNode={ this.handleOnDoubleClickNode } />
 					</Grid>
-					<Grid item md={6}>
+					<Grid md={6}>
 						<TargetDataCard targetData={ this.state.targetData } />
 						<FriendsTable friendsList={ this.state.friendsList } onClick={ this.handleOnClickNode } />
 					</Grid>

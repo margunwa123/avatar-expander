@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -11,11 +11,21 @@ import { Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
-const styles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-});
+const styles = {
+  root: {
+    margin: '3% 5%',
+    width: '90%',
+  },
+  title: {
+    padding: '1.5%',
+  },
+  head: {
+    background: 'black',
+  },
+  headText: {
+    color: 'white',
+  }
+};
 
 class FriendsTable extends React.Component {
   renderElement(element) {
@@ -25,9 +35,9 @@ class FriendsTable extends React.Component {
       case 'water':
         return <FontAwesomeIcon icon={faCircle} color='blue' />;
       case 'air':
-        return <FontAwesomeIcon icon={faCircle} color='green' />;
+        return <FontAwesomeIcon icon={faCircle} color='#79edfe' />;
       case 'earth':
-        return <FontAwesomeIcon icon={faCircle} color='yellow' />;
+        return <FontAwesomeIcon icon={faCircle} color='brown' />;
       default:
         return <FontAwesomeIcon icon={faCircle} color='black' />;
     }
@@ -36,17 +46,17 @@ class FriendsTable extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <TableContainer component={Paper}>
+      <TableContainer className={classes.root} component={Paper} elevation={5}>
         {this.props.friendsList.length > 0 &&
-          <Typography variant="h5">Friends</Typography>
+          <Typography className={classes.title} variant="h6">Friends</Typography>
         }
         {this.props.friendsList.length > 0 &&
-          <Table className={classes.table} aria-label="friends table">
-            <TableHead>
+          <Table aria-label="friends table">
+            <TableHead className={classes.head}>
               <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Element</TableCell>
+                <TableCell className={classes.headText}>ID</TableCell>
+                <TableCell className={classes.headText}>Name</TableCell>
+                <TableCell className={classes.headText}>Element</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -55,9 +65,7 @@ class FriendsTable extends React.Component {
                   <TableCell>{friends.id}</TableCell>
                   <TableCell>{friends.name}</TableCell>
                   <TableCell>
-                    {this.renderElement(friends.element)}
-                    &nbsp;
-                    {friends.element}
+                    {this.renderElement(friends.element)} {friends.element}
                   </TableCell>
                 </TableRow>
               ))}
