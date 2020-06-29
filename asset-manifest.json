@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/avatar-expander/static/css/main.5f361e03.chunk.css",
+    "main.js": "/avatar-expander/static/js/main.d6ca1160.chunk.js",
+    "main.js.map": "/avatar-expander/static/js/main.d6ca1160.chunk.js.map",
+    "runtime-main.js": "/avatar-expander/static/js/runtime-main.8c9b5b4a.js",
+    "runtime-main.js.map": "/avatar-expander/static/js/runtime-main.8c9b5b4a.js.map",
+    "static/js/2.c1bda09b.chunk.js": "/avatar-expander/static/js/2.c1bda09b.chunk.js",
+    "static/js/2.c1bda09b.chunk.js.map": "/avatar-expander/static/js/2.c1bda09b.chunk.js.map",
+    "index.html": "/avatar-expander/index.html",
+    "precache-manifest.ea40c8e0629fc292bc32a3588ad719ad.js": "/avatar-expander/precache-manifest.ea40c8e0629fc292bc32a3588ad719ad.js",
+    "service-worker.js": "/avatar-expander/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/avatar-expander/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.c1bda09b.chunk.js.LICENSE.txt": "/avatar-expander/static/js/2.c1bda09b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c9b5b4a.js",
+    "static/js/2.c1bda09b.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d6ca1160.chunk.js"
+  ]
+}
