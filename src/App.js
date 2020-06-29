@@ -24,7 +24,7 @@ class App extends Component {
 
 		var newFriendsList = [];
 		this.state.json.friends.forEach(friend => {
-			if (friend.id != this.state.json.id) {
+			if (friend.id !== this.state.json.id) {
 				newFriendsList.push({ id: friend.id, name: friend.name, element: friend.element });
 			}
 		});

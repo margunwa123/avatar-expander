@@ -37,6 +37,8 @@ export default function AlertDialog() {
             <p>Enter id to search.</p>
             <p>Click on a node or on a friend in the friend list to search that node.</p>
             <p>Double click on a node to expand from that node.</p>
+            <p>Scroll down/up to zoom in/out.</p>
+            <p>Drag and drop on an empty space to move the graph.</p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
