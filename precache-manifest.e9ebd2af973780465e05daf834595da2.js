@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "450cfb7467b2aea346a8e48a526b51d1",
+    "revision": "e74398ac653179fb4dee7573cc0f4b33",
     "url": "/avatar-expander/index.html"
   },
   {
-    "revision": "fe38cc29001d58df22c9",
+    "revision": "c4b9cc126a680e02c870",
     "url": "/avatar-expander/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/avatar-expander/static/js/2.c1bda09b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fe38cc29001d58df22c9",
-    "url": "/avatar-expander/static/js/main.d6ca1160.chunk.js"
+    "revision": "c4b9cc126a680e02c870",
+    "url": "/avatar-expander/static/js/main.f0c8114b.chunk.js"
   },
   {
     "revision": "183f35398481a3b6431c",
