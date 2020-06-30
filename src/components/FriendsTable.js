@@ -12,69 +12,69 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 const styles = {
-  root: {
-    margin: '3% 5%',
-    width: '90%',
-  },
-  title: {
-    padding: '1.5%',
-  },
-  head: {
-    background: 'black',
-  },
-  headText: {
-    color: 'white',
-  }
+	root: {
+		margin: '3% 5%',
+		width: '90%',
+	},
+	title: {
+		padding: '1.5%',
+	},
+	head: {
+		background: 'black',
+	},
+	headText: {
+		color: 'white',
+	}
 };
 
 class FriendsTable extends React.Component {
-  renderElement(element) {
-    switch (element) {
-      case 'fire':
-        return <FontAwesomeIcon icon={faCircle} color='red' />;
-      case 'water':
-        return <FontAwesomeIcon icon={faCircle} color='blue' />;
-      case 'air':
-        return <FontAwesomeIcon icon={faCircle} color='#79edfe' />;
-      case 'earth':
-        return <FontAwesomeIcon icon={faCircle} color='brown' />;
-      default:
-        return <FontAwesomeIcon icon={faCircle} color='black' />;
-    }
-  }
+	renderElement(element) {
+		switch (element) {
+			case 'fire':
+				return <FontAwesomeIcon icon={faCircle} color='red' />;
+			case 'water':
+				return <FontAwesomeIcon icon={faCircle} color='blue' />;
+			case 'air':
+				return <FontAwesomeIcon icon={faCircle} color='#79edfe' />;
+			case 'earth':
+				return <FontAwesomeIcon icon={faCircle} color='brown' />;
+			default:
+				return <FontAwesomeIcon icon={faCircle} color='black' />;
+		}
+	}
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <TableContainer className={classes.root} component={Paper} elevation={5}>
-        {this.props.friendsList.length > 0 &&
-          <Typography className={classes.title} variant="h6">Friends</Typography>
-        }
-        {this.props.friendsList.length > 0 &&
-          <Table aria-label="friends table">
-            <TableHead className={classes.head}>
-              <TableRow>
-                <TableCell className={classes.headText}>ID</TableCell>
-                <TableCell className={classes.headText}>Name</TableCell>
-                <TableCell className={classes.headText}>Element</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.props.friendsList.map((friends) => (
-                <TableRow onClick={() => this.props.onClick(friends.id) }>
-                  <TableCell>{friends.id}</TableCell>
-                  <TableCell>{friends.name}</TableCell>
-                  <TableCell>
-                    {this.renderElement(friends.element)} {friends.element}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        }
-      </TableContainer>
-    );
-  }
+	render() {
+		const { classes } = this.props;
+		return (
+		<TableContainer className={classes.root} component={Paper} elevation={5}>
+			{this.props.friendsList.length > 0 &&
+			<Typography className={classes.title} variant="h6">Friends</Typography>
+			}
+			{this.props.friendsList.length > 0 &&
+			<Table aria-label="friends table">
+				<TableHead className={classes.head}>
+				<TableRow>
+					<TableCell className={classes.headText}>ID</TableCell>
+					<TableCell className={classes.headText}>Name</TableCell>
+					<TableCell className={classes.headText}>Element</TableCell>
+				</TableRow>
+				</TableHead>
+				<TableBody>
+				{this.props.friendsList.map((friends) => (
+					<TableRow onClick={() => this.props.onClick(friends.id) }>
+					<TableCell>{friends.id}</TableCell>
+					<TableCell>{friends.name}</TableCell>
+					<TableCell>
+						{this.renderElement(friends.element)} {friends.element}
+					</TableCell>
+					</TableRow>
+				))}
+				</TableBody>
+			</Table>
+			}
+		</TableContainer>
+		);
+	}
 }
 
 export default withStyles(styles)(FriendsTable);

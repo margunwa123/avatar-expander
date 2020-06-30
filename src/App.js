@@ -34,7 +34,6 @@ class App extends Component {
 				t.id === friends.id	// remove duplicate friends
 			))
 		);
-		// console.log(newFriendsList);
 		this.setState({ friendsList: newFriendsList });
 	}
 
@@ -97,12 +96,10 @@ class App extends Component {
 				|| (links.source === links.target)	// remove self loop
 			))
 		);
-		// console.log(newGraphData);
 		this.setState({ graphData: newGraphData });
 	}
 	
     fetchTarget = () => {
-		// console.log(this.state.target);
         fetch("https://avatar.labpro.dev/friends/" + this.state.target, {
             method: 'GET'
         })
