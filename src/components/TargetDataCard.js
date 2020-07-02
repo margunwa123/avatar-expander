@@ -8,7 +8,7 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 const styles = {
     root: {
-		width: '40%',
+		width: '80%',
 		margin: '2% auto',
     },
     title: {

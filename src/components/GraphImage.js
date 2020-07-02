@@ -12,7 +12,7 @@ class GraphImage extends React.Component {
             },
             directed: true,
             height: window.innerHeight,
-            width: window.innerWidth/2,
+            width: window.innerWidth * 3 / 4,
         };
 
         return (
