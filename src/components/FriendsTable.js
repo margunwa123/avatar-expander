@@ -61,12 +61,12 @@ class FriendsTable extends React.Component {
 				</TableHead>
 				<TableBody>
 				{this.props.friendsList.map((friends) => (
-					<TableRow onClick={() => this.props.onClick(friends.id) }>
-					<TableCell>{friends.id}</TableCell>
-					<TableCell>{friends.name}</TableCell>
-					<TableCell>
-						{this.renderElement(friends.element)} {friends.element}
-					</TableCell>
+					<TableRow onClick={() => this.props.onClick(friends.id)} key={friends.id}>
+						<TableCell>{friends.id}</TableCell>
+						<TableCell>{friends.name}</TableCell>
+						<TableCell>
+							{this.renderElement(friends.element)} {friends.element}
+						</TableCell>
 					</TableRow>
 				))}
 				</TableBody>

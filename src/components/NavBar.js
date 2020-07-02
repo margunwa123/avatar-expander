@@ -10,7 +10,7 @@ const NavBar = () => {
         <AppBar position="sticky">
             <Toolbar>
                 <Grid container alignItems="flex-start" justify="flex-start" direction="row" >
-                    <Typography variant="title" color="inherit">
+                    <Typography variant="h6" color="inherit">
                         Avatar Expander
                     </Typography>
                 </Grid>

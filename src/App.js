@@ -126,13 +126,13 @@ class App extends Component {
 			<div>
 				<NavBar />
 				<Grid container>
-					<Grid xs={12}>
+					<Grid item xs={12}>
 						<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />
 					</Grid>
-					<Grid md={6}>
+					<Grid item md={6}>
 						<GraphImage target={ this.state.target } graphData={ this.state.graphData } onClickNode={ this.handleOnClickNode } onDoubleClickNode={ this.handleOnDoubleClickNode } />
 					</Grid>
-					<Grid md={6}>
+					<Grid item md={6}>
 						<TargetDataCard targetData={ this.state.targetData } />
 						<FriendsTable friendsList={ this.state.friendsList } onClick={ this.handleOnClickNode } />
 					</Grid>

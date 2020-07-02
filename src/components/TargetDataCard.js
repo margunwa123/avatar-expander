@@ -42,7 +42,7 @@ class TargetDataCard extends React.Component {
 				{ this.props.targetData !== null &&
 				<CardContent>
 					<Typography className={classes.title} variant="h6">
-						Suspect
+						Suspect Profile
 					</Typography>
 					<Typography className={classes.data}>
 						ID - { this.props.targetData.id}<br/>

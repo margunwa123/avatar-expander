@@ -22,9 +22,9 @@ export default function AlertDialog() {
 
 	return (
 		<div>
-		<IconButton color="white" aria-label="help" component="span" onClick={handleClickOpen}>
+		<IconButton color="inherit" aria-label="help" component="span" onClick={handleClickOpen}>
 			<FontAwesomeIcon icon={faQuestionCircle} color='white' />
-			</IconButton>
+		</IconButton>
 		<Dialog
 			open={open}
 			onClose={handleClose}
