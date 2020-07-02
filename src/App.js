@@ -44,43 +44,43 @@ class App extends Component {
 		} else {
 			newGraphData = this.state.graphData;
 		}
-		var nodeColor;
+		var nodeSvg;
 		switch (this.state.json.element) {
 			case 'fire':
-				nodeColor = 'red';
+				nodeSvg = process.env.PUBLIC_URL + '/elements/fire-solid.svg';
 				break;
 			case 'water':
-				nodeColor = 'blue';
+				nodeSvg = process.env.PUBLIC_URL + '/elements/water-solid.svg';
 				break;
 			case 'air':
-				nodeColor = '#79edfe';
+				nodeSvg = process.env.PUBLIC_URL + '/elements/wind-solid.svg';
 				break;
 			case 'earth':
-				nodeColor = 'brown';
+				nodeSvg = process.env.PUBLIC_URL + '/elements/leaf-solid.svg';
 				break;
 			default:
-				nodeColor = 'black';
+				nodeSvg = process.env.PUBLIC_URL + '/elements/fire-solid.svg';
 		}
 		const sourceId = this.state.json.id;
-		newGraphData.nodes.push({ id: this.state.json.id, name: this.state.json.name, color: nodeColor });
+		newGraphData.nodes.push({ id: this.state.json.id, name: this.state.json.name, svg: nodeSvg });
 		this.state.json.friends.forEach(friend => {
 			switch (friend.element) {
 				case 'fire':
-					nodeColor = 'red';
+					nodeSvg = process.env.PUBLIC_URL + '/elements/fire-solid.svg';
 					break;
 				case 'water':
-					nodeColor = 'blue';
+					nodeSvg = process.env.PUBLIC_URL + '/elements/water-solid.svg';
 					break;
 				case 'air':
-					nodeColor = '#79edfe';
+					nodeSvg = process.env.PUBLIC_URL + '/elements/wind-solid.svg';
 					break;
 				case 'earth':
-					nodeColor = 'brown';
+					nodeSvg = process.env.PUBLIC_URL + '/elements/leaf-solid.svg';
 					break;
 				default:
-					nodeColor = 'black';
+					nodeSvg = process.env.PUBLIC_URL + '/elements/fire-solid.svg';
 			}
-			newGraphData.nodes.push({ id: friend.id, name: friend.name, color: nodeColor });
+			newGraphData.nodes.push({ id: friend.id, name: friend.name, svg: nodeSvg });
 		});
 		newGraphData.nodes = newGraphData.nodes.filter((nodes, index, self) =>
 			index === self.findIndex((t) => (
@@ -124,7 +124,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<NavBar />
+				<NavBar nodeCount={ this.state.graphData.nodes.length } />
 				<Grid container>
 					<Grid item xs={12}>
 						<InputForm target={ this.state.target } json={ this.state.json } onChange={ this.handleOnChange } error={ this.state.error } errorMessage={ this.state.errorMessage } />

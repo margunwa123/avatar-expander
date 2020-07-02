@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faFire, faWater, faWind, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 const styles = {
     root: {
@@ -23,13 +23,13 @@ class TargetDataCard extends React.Component {
 	renderElement(element) {
 		switch (element) {
 			case 'fire':
-				return <FontAwesomeIcon icon={faCircle} color='red' />;
+				return <FontAwesomeIcon icon={faFire} color='red' />;
 			case 'water':
-				return <FontAwesomeIcon icon={faCircle} color='blue' />;
+				return <FontAwesomeIcon icon={faWater} color='blue' />;
 			case 'air':
-				return <FontAwesomeIcon icon={faCircle} color='#79edfe' />;
+				return <FontAwesomeIcon icon={faWind} color='#79edfe' />;
 			case 'earth':
-				return <FontAwesomeIcon icon={faCircle} color='brown' />;
+				return <FontAwesomeIcon icon={faLeaf} color='green' />;
 			default:
 				return <FontAwesomeIcon icon={faCircle} color='black' />;
 		}
@@ -47,7 +47,7 @@ class TargetDataCard extends React.Component {
 					<Typography className={classes.data}>
 						ID - { this.props.targetData.id}<br/>
 						Name - { this.props.targetData.name }<br/>
-						Element - { this.renderElement(this.props.targetData.element) } { this.props.targetData.element }
+						Element - { this.renderElement(this.props.targetData.element) }
 					</Typography>
 				</CardContent>
 				}

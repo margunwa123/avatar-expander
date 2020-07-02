@@ -8,6 +8,22 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faFire, faWater, faWind, faLeaf } from '@fortawesome/free-solid-svg-icons';
+
+function renderElement(element) {
+	switch (element) {
+		case 'fire':
+			return <FontAwesomeIcon icon={faFire} color='red' />;
+		case 'water':
+			return <FontAwesomeIcon icon={faWater} color='blue' />;
+		case 'air':
+			return <FontAwesomeIcon icon={faWind} color='#79edfe' />;
+		case 'earth':
+			return <FontAwesomeIcon icon={faLeaf} color='green' />;
+		default:
+			return <FontAwesomeIcon icon={faCircle} color='black' />;
+	}
+}
 
 export default function AlertDialog() {
 	const [open, setOpen] = React.useState(false);
@@ -39,6 +55,10 @@ export default function AlertDialog() {
 				<p>Double click on a node to expand from that node.</p>
 				<p>Scroll down/up to zoom in/out.</p>
 				<p>Drag and drop on an empty space to move the graph.</p>
+				<p>{renderElement("fire")} = Fire</p>
+				<p>{renderElement("water")} = Water</p>
+				<p>{renderElement("air")} = Air</p>
+				<p>{renderElement("earth")} = Earth</p>
 			</DialogContentText>
 			</DialogContent>
 			<DialogActions>

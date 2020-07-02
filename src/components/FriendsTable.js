@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faFire, faWater, faWind, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 const styles = {
 	root: {
@@ -31,13 +31,13 @@ class FriendsTable extends React.Component {
 	renderElement(element) {
 		switch (element) {
 			case 'fire':
-				return <FontAwesomeIcon icon={faCircle} color='red' />;
+				return <FontAwesomeIcon icon={faFire} color='red' />;
 			case 'water':
-				return <FontAwesomeIcon icon={faCircle} color='blue' />;
+				return <FontAwesomeIcon icon={faWater} color='blue' />;
 			case 'air':
-				return <FontAwesomeIcon icon={faCircle} color='#79edfe' />;
+				return <FontAwesomeIcon icon={faWind} color='#79edfe' />;
 			case 'earth':
-				return <FontAwesomeIcon icon={faCircle} color='brown' />;
+				return <FontAwesomeIcon icon={faLeaf} color='green' />;
 			default:
 				return <FontAwesomeIcon icon={faCircle} color='black' />;
 		}
@@ -56,7 +56,7 @@ class FriendsTable extends React.Component {
 				<TableRow>
 					<TableCell className={classes.headText}>ID</TableCell>
 					<TableCell className={classes.headText}>Name</TableCell>
-					<TableCell className={classes.headText}>Element</TableCell>
+					<TableCell align="center" className={classes.headText}>Element</TableCell>
 				</TableRow>
 				</TableHead>
 				<TableBody>
@@ -64,8 +64,8 @@ class FriendsTable extends React.Component {
 					<TableRow onClick={() => this.props.onClick(friends.id)} key={friends.id}>
 						<TableCell>{friends.id}</TableCell>
 						<TableCell>{friends.name}</TableCell>
-						<TableCell>
-							{this.renderElement(friends.element)} {friends.element}
+						<TableCell align="center">
+							{this.renderElement(friends.element)}
 						</TableCell>
 					</TableRow>
 				))}
