@@ -17,7 +17,7 @@ Simply run this command to start the server. Your browser will be opened automat
 npm start
 ```
 
-### How to Use
+## How to Use
 
 * Enter id to search.
 * Click on a node or on a friend in the friend list to search that node.
