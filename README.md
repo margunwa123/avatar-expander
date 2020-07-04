@@ -33,12 +33,12 @@ npm start
 * [NodeJS](https://nodejs.org/en/) - Backend framework
 
 ## Review API
-- Self friend: 12
+- Self friend: 12<br>
 Suspect with id 12 is friends with another suspect with the same id.
 ```
 {"status":200,"payload":{"id":"12","name":"Rizki Sulis Syarifuddin","friends":[{"id":"54","name":"Jonathan Mirza","element":"earth"},{"id":"13","name":"Ariyanti Hasna Ilham","element":"fire"},{"id":"12","name":"Rizki Sulis Syarifuddin","element":"water"},{"id":"184","name":"Valentinus Rumapea Albisthami","element":"water"},{"id":"76","name":"Ghani Hollyana Rafi Irsandy","element":"air"}],"element":"water"},"message":""}
 ```
-- Duplicate friends: 5
+- Duplicate friends: 5<br>
 Suspect with id 70 appears twice in the friend list.
 ```
 {"status":200,"payload":{"id":"5","name":"Byan Ravid","friends":[{"id":"70","name":"Raihan Yumna Daniel","element":"water"},{"id":"70","name":"Raihan Yumna Daniel","element":"water"},{"id":"7","name":"Alamsyah Nurrosyid Hudan","element":"air"},{"id":"113","name":"Yonatan Ekananda","element":"air"},{"id":"75","name":"Olivia Sosrodimardito Kevin","element":"air"},{"id":"151","name":"Karuna Qurrata Lucky","element":"earth"},{"id":"34","name":"Rafi' Dzakiy Salim","element":"air"},{"id":"44","name":"Elisabeth Chokyi Bezalel","element":"water"},{"id":"32","name":"Nasharudin Aziz Fauzi","element":"air"},{"id":"107","name":"Arfananda Rahim Elbert Dhafin","element":"fire"}],"element":"earth"},"message":""}
